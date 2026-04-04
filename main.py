@@ -297,8 +297,8 @@ class MainApp(QMainWindow):
                 return None, None
                 
             diff_ratio = (major_axis - minor_axis) / major_axis
-            if diff_ratio > 0.05: # Toleransı biraz geniş tuttuk (%5). Özel isteğe göre 0.02 %2'ye çekilebilir.
-                QMessageBox.warning(self, "Hata", f"Seçilen alan tam dairesel değil. (Sapma: %{diff_ratio*100:.1f}) Lütfen daha düz veya gölgesiz bir alan seçin.")
+            if diff_ratio > 0.15: # Perspektif ve gölge toleransını artırdık (%15).
+                QMessageBox.warning(self, "Hata", f"Seçilen alan çok bozuk. (Sapma: %{diff_ratio*100:.1f}) Lütfen daha düz veya gölgesiz bir alan seçin.")
                 return None, None
             
             # Ortalama çap hesabı
